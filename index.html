@@ -153,7 +153,7 @@ for (let i = 0; i < CONFIG.heartParticles; i++) {
   heartPositions[i * 3 + 1] = -50 - Math.random() * 30;
   heartPositions[i * 3 + 2] = (Math.random() - 0.5) * 80;
   
-  heartSpeeds.push(0.008 + Math.random() * 0.015);
+  heartSpeeds.push(0.003 + Math.random() * 0.007); // Chậm hơn, lãng mạn hơn
   heartArrived.push(false);
   heartDelays.push(0);
   
@@ -333,7 +333,7 @@ imgElement.src = CONFIG.imageUrl;
 // Fade in ảnh sau khi particles tụ lại
 let imageOpacity = 0;
 let imageReady = false;
-setTimeout(() => { imageReady = true; }, 2500);
+setTimeout(() => { imageReady = true; }, 5000); // 5 giây - chờ tim hình thành đẹp
 
 /* ================= ENERGY RING ================= */
 const ringPositions = new Float32Array(CONFIG.ringParticles * 3);
@@ -613,7 +613,7 @@ function animate() {
   
   // Fade in ảnh từ từ (dùng window reference)
   if (imageReady && window.imageMat && imageOpacity < 1) {
-    imageOpacity += 0.006;
+    imageOpacity += 0.003; // Fade chậm hơn, lãng mạn hơn
     window.imageMat.opacity = Math.min(imageOpacity, 1);
   }
   
